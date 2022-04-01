@@ -16,10 +16,6 @@ public class PlayerBeanConfiguration {
 	@Bean
 	public Player player() {
 		Player bean = new Player();
-		bean.setfName("Connor");
-		bean.setlName("Murrell");
-		bean.setJerseyNum(11);
-		bean.setPosition("Point Guard");
 		return bean;
 	}
 }
