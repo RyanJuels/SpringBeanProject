@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert New Player</title>
+</head>
+<body>
+	<form th:object="${newPlayer}" th:action="@{/update/{id}(id=${newPlayer.id})}" method='POST'>
+		First Name: <input name="fName" size="20" th:field="*{fName}"> <br />
+		Last Name: <input name="lName" size="10" th:field="*{lName}"><br />
+		Jersey Number: <input name="jerseyNum" size="20" th:field="*{jerseyNum}"><br />
+		Position: <input name="position" size="20" th:field="*{position}"><br />
+		<input name="submit" type="submit" value="submit" />
+	</form>
+<a href="viewAll">View all Players</a>
+</body>
+</html>
