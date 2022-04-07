@@ -46,12 +46,12 @@ public class WebController {
 	@GetMapping("/edit/{id}")
 	public String showUpdatePlayer(@PathVariable("id") long id, Model model) {
 		Player c = repo.findById(id).orElse(null);
-		model.addAttribute("newContact", c);
+		model.addAttribute("newPlayer", c);
 		return "input";
 	}
 
 	@PostMapping("/update/{id}")
-	public String reviseContact(Player c, Model model) {
+	public String revisePlayer(Player c, Model model) {
 		repo.save(c);
 		return viewAllPlayers(model);
 	}

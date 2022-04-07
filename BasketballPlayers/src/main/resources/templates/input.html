@@ -3,9 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert New Player</title>
+<script>
+	function validation(){
+		if( document.playerForm.fName.value == "" ) {
+            alert( "Please provide your first name!" );
+            document.playerForm.fName.focus() ;
+            return false;
+         }
+         if( document.playerForm.lName.value == "" ) {
+
+	alert("Please provide your last name!");
+			document.playerForm.lName.focus();
+			return false;
+		}
+		if (document.playerForm.jerseyNum.value == ""
+				|| isNaN(document.playerForm.jerseyNum.value)
+				|| document.playerForm.jerseyNum.value.length < 1
+				|| document.playerForm.jerseyNum.value.length > 2) {
+
+			alert("Please provide a valid jersey number");
+			document.playerForm.jerseyNum.focus();
+			return false;
+		}
+		if (document.playerForm.position.value == "") {
+			alert("Please provide your position!");
+			document.playerForm.position.focus();
+			return false;
+		}
+		return (true);
+	}
+</script>
 </head>
 <body>
-	<form th:object="${newPlayer}" th:action="@{/update/{id}(id=${newPlayer.id})}" method='POST'>
+	<form th:object="${newPlayer}" th:action="@{/update/{id}(id=${newPlayer.id})}" method='POST' name="playerForm" onsubmit="return(validation());">
 		First Name: <input name="fName" size="20" th:field="*{fName}"> <br />
 		Last Name: <input name="lName" size="10" th:field="*{lName}"><br />
 		Jersey Number: <input name="jerseyNum" size="20" th:field="*{jerseyNum}"><br />
